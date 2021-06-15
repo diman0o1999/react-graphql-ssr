@@ -1,20 +1,20 @@
 import React from 'react';
 import { withApollo } from '../libs/apollo';
 import { useQuery } from '@apollo/react-hooks';
-import { ALL_CHARACTERS } from '../gql/allCharacters';
+import { ALL_ITEMS } from '../gql/allItems'
 
 const IndexPage = () => {
-  const { loading, error, data } = useQuery(ALL_CHARACTERS);
+  const { loading, error, data } = useQuery(ALL_ITEMS);
   if (error) return <h1>Error</h1>;
   if (loading) return <h1>Loading...</h1>;
 
   return (
     <>
-      <h1>Setting up Apollo GraphQL in Next.js with Server Side Rendering</h1>
+      <h1>All Items</h1>
       <div>
-        {data.characters.results.map((data) => (
+        {data.items.map((data) => (
           <ul key={data.id}>
-            <li>{data.name}</li>
+            <li>{data.title}</li>
           </ul>
         ))}
       </div>
