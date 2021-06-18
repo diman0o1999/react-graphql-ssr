@@ -7,6 +7,7 @@ export default function createApolloClient(initialState, ctx) {
   // The `ctx` (NextPageContext) will only be present on the server.
   // use it to extract auth headers (ctx.req) or similar.
   return new ApolloClient({
+    connectToDevTools: true,
     ssrMode: Boolean(ctx),
     link: new HttpLink({
       // uri: 'https://rickandmortyapi.com/graphql', // Server URL (must be absolute)
