@@ -1,6 +1,11 @@
-import gql from 'graphql-tag'
+import { gql } from '@apollo/client'
+import { UserFragment } from 'gql/usersSchema'
+import { GameLocationFragment, ServerFragment } from 'gql/allISettings'
 
 export const ALL_ITEMS = gql`
+  ${UserFragment}
+  ${ServerFragment}
+  ${GameLocationFragment}
   query LibraryQuery(
   $mapId: Int,
   $serverId: Int
@@ -9,29 +14,17 @@ export const ALL_ITEMS = gql`
     id
     title
     user{
-      id
-      fullName
-      email
+      ...UserFragment
     }
     server{
-      id
-      name
-      region{
-        id
-        name
-      }
+      ...ServerFragment
     }
     gameLocation{
-      id
-      name
-      playerMax
-      playerMin
+      ...GameLocationFragment
     }
     itemUsers{
       user{
-        id
-        fullName
-        email
+        ...UserFragment
       }
     }
   }
