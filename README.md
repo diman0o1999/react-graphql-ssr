@@ -370,7 +370,7 @@ touch allCharacters.js
 ```
 
 ```jsx
-import { gql } from '@apollo/client';
+import gql from 'graphql-tag';
 
 export const ALL_CHARACTERS = gql`
   query allCharacters {

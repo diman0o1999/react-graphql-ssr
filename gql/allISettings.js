@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client'
+import gql from 'graphql-tag'
 
 export const ALL_MAP = gql`
   query gameLocationsList{
@@ -12,40 +12,13 @@ export const ALL_MAP = gql`
 `
 export const ALL_SERVER = gql`
   query serverList{
-    servers{
-      name
-      id
-      region{
-        name
-        id
-      }
-    }
-  }
-`
-export const ServerFragment = gql`
-  fragment ServerFragment on Server {
-    name
+  servers{
     id
+    name
     region{
       name
       id
     }
   }
-`
-
-export const RegionFragment = gql`
-  fragment RegionFragment on Region {
-    name
-    id
-  }
-`
-
-export const GameLocationFragment = gql`
-  fragment GameLocationFragment on GameLocation {
-    id
-    name
-    playerMax
-    playerMin
-    locationUrl
-  }
+}
 `

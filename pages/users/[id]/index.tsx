@@ -1,13 +1,13 @@
 import React from 'react';
 import { withApollo } from 'libs/apollo';
-// import {useQuery} from '@apollo/react-hooks';
-// import {ALL_ITEMS} from 'gql/allItems'
+import { useQuery } from '@apollo/react-hooks';
+import { ALL_ITEMS } from 'gql/allItems';
 import Layout from 'src/Layouts';
-import { isCurrentUserVar } from 'libs/cache';
+import { isCurrentUserVar } from '../../../libs/cache';
 
-const UserPage = () => {
+const IndexPage = () => {
   const currentUser = isCurrentUserVar();
-  // const {loading, error, data} = useQuery(ALL_ITEMS);
+  const { loading, error, data } = useQuery(ALL_ITEMS);
   return (
     <Layout title="Мой профиль">
       <h1>{currentUser.fullName}</h1>
@@ -29,4 +29,4 @@ const UserPage = () => {
   );
 };
 
-export default withApollo({ ssr: false })(UserPage);
+export default withApollo({ ssr: false })(IndexPage);

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card, CardBody } from '@paljs/ui/Card';
+// @ts-ignore
 import Layout from 'src/Layouts';
 
 const isSSR = typeof window === 'undefined';
